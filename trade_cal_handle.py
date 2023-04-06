@@ -175,18 +175,18 @@ def trade_date_offset(date, n, cal_ls=tushare_cal_ls):
         yj_peridos = [year + '1231']
     return yj_peridos'''
 
-
+# 根据提取数据的日期生成此时已经发布截至的业绩报告期
 def get_yj_period(date):
     year = date[:4]
     short_date = date[4:]
     if short_date <= '0430':
-        yj_periods = [str(int(year) - 1) + '1231']
+        yj_periods = [str(int(year) - 1) + '0930']
     elif short_date <= '0830':
-        yj_periods = [year + '0630']
+        yj_periods = [year + '0331']
     elif short_date <= '1030':
-        yj_periods = [year + '0930']
+        yj_periods = [year + '0630']
     else:
-        yj_periods = [year + '1231']
+        yj_periods = [year + '0930']
     return yj_periods
 
 
